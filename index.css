@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", monospace;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background-color: greenyellow;
+  width: 600px;
+  height: 600px;
+
+  position: relative;
+  overflow: hidden;
+}
+.header {
+  width: 100%;
+}
+.header > h1 {
+  text-align: center;
+}
+.new-todo {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding: 0.25rem 0;
+  align-items: center;
+  justify-content: center;
+}
+#todo-form {
+  display: flex;
+  align-items: center;
+}
+#new-task-input {
+  flex: 1;
+  height: 40px;
+  background-color: transparent;
+  outline: transparent;
+  padding-left: 0.5rem;
+  border-right: 0px solid transparent;
+  font-size: 1rem;
+}
+
+#new-task-submit {
+  width: 100px;
+  height: 40px;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  border: 1px solid black;
+  cursor: pointer;
+}
+#new-task-submit:hover {
+  text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.8);
+}
+.task-container {
+  height: 530px;
+  padding: 0.5rem;
+  border: 1px solid rgb(219, 219, 219);
+  overflow: scroll;
+  border-radius: 0 0 5px 5px;
+  background-color: aliceblue;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  border-radius: 5px;
+}
+.task:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.task * {
+  cursor: pointer;
+}
+.content {
+  flex: 1;
+}
+.text {
+  width: 400px;
+}
+.checked {
+  text-decoration: line-through;
+  color: grey;
+}
+.text {
+  margin: 1px;
+}
+.edit {
+  margin: 1px;
+  margin-right: 0;
+}
