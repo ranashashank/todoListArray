@@ -7,37 +7,37 @@ let editTodoId = -1;
 
 //api call
 
-// fetch("https://jsonplaceholder.typicode.com/todos")
-//   .then((response) => {
-//     if (!response.ok) {
-//       throw new Error("Network response was not OK");
-//     }
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    }
 
-//     return response.json();
-//   })
+    return response.json();
+  })
 
-//   .then((data) => {
-//     // Process the received data
-//     data.forEach((dat) => {
-//       let f = false;
-//       f = todoArray.some((todo) => {
-//         return todo.value.toUpperCase() === dat.title.toUpperCase();
-//       });
-//       if (!f) {
-//         todoArray.push({
-//           value: dat.title,
-//           checked: false,
-//         });
-//       }
-//     });
-//     console.log(todoArray.length);
-//   })
+  .then((data) => {
+    // Process the received data
+    data.forEach((dat) => {
+      let f = false;
+      f = todoArray.some((todo) => {
+        return todo.value.toUpperCase() === dat.title.toUpperCase();
+      });
+      if (!f) {
+        todoArray.push({
+          value: dat.title,
+          checked: false,
+        });
+      }
+    });
+    console.log(todoArray.length);
+  })
 
-//   .catch((error) => {
-//     // Handle any errors that occurred during the fetch request
+  .catch((error) => {
+    // Handle any errors that occurred during the fetch request
 
-//     console.log("Error:", error.message);
-//   });
+    console.log("Error:", error.message);
+  });
 
 //1st render
 renderTodos();
