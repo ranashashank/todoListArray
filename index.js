@@ -4,40 +4,36 @@ const taskListEle = document.getElementById("task-list");
 
 let todoArray = JSON.parse(localStorage.getItem("todos")) || [];
 let editTodoId = -1;
-
+console.log(todoArray.length);
 //api call
 
-fetch("https://jsonplaceholder.typicode.com/todos")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    }
+todoArray.length === 0 &&
+  fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
 
-    return response.json();
-  })
+      return response.json();
+    })
 
-  .then((data) => {
-    // Process the received data
-    data.forEach((dat) => {
-      let f = false;
-      f = todoArray.some((todo) => {
-        return todo.value.toUpperCase() === dat.title.toUpperCase();
-      });
-      if (!f) {
+    .then((data) => {
+      // Process the received data
+      data.forEach((dat) => {
         todoArray.push({
           value: dat.title,
           checked: false,
         });
-      }
+      });
+      console.log(todoArray.length);
+      renderTodos();
+    })
+
+    .catch((error) => {
+      // Handle any errors that occurred during the fetch request
+
+      console.log("Error:", error.message);
     });
-    console.log(todoArray.length);
-  })
-
-  .catch((error) => {
-    // Handle any errors that occurred during the fetch request
-
-    console.log("Error:", error.message);
-  });
 
 //1st render
 renderTodos();
